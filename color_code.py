@@ -1,45 +1,76 @@
-def rgb2hex(r, g, b):
-    """RGB値をHTMLなどで使われる16進数表現に変換"""
-    return '#%02X%02X%02X' % (r, g, b)
-
-
-def make_gray_code(i):
-    gray_tone = (255, 245, 220, 211, 192, 169, 128, 105, 0)
-    if 0 <= i < len(gray_tone):
-        gray = gray_tone[i]
-        return rgb2hex(gray, gray, gray)
+# カラーコードを16種類の中で一番近いものに変換する
+def color_code_conversion(R, G, B):
+    if R < 64:
+        R = 0
+    elif(64 <=  R <= 160):
+        R = 128
+    elif(161 <= R <= 223):
+        R = 192
+    elif(224 <=  R <= 255):
+        R = 255
     else:
-        return 'Error'
+        print("Rが不正です。")
 
-
-def make_rgb_code(n, i):
-    """引数:n=色数(3の倍数)、i=色番号"""
-
-    if n % 3 != 0:
-        return 'Error:nが3の倍数では無い'
-
-    def rgb_tone(x):
-        return max(abs(256 * 3 // 2 - 256 * 3 * x // n) - 256 // 2, 1) - 1
-
-    r = rgb_tone(i)
-    g = rgb_tone((i - n * 1 // 3) % n)
-    b = rgb_tone((i - n * 2 // 3) % n)
-    return rgb2hex(r, g, b)
-
-
-def make_color_code(n, i, gray=False):
-    """引数:n=色数、i=色番号、gray=False(カラー),True(白黒)"""
-    if 0 <= i < n:
-        return make_rgb_code(n, i)
-    elif gray:
-        return make_gray_code(i - n)
+    if G < 64:
+        G = 0
+    elif(64 <= G <= 160):
+        G = 128
+    elif(161 <= G <= 223):
+        G = 192
+    elif(224 <= G <= 255):
+        G = 255
     else:
-        return 'Error'
+        print("Gが不正です。")
 
+    if B < 64:
+        B = 0
+    elif(64 <= B <= 160):
+        B = 128
+    elif(161 <= B <= 223):
+        B = 192
+    elif(224 <= B <= 255):
+        B = 255
+    else:
+        print("Bが不正です。")
 
-if __name__ == '__main__':
-    for i in range(12):
-        print(make_color_code(12, i, gray=False))  # 色の数=12
-    print('-------')
-    for i in range(12, 12 + 9):
-        print(make_color_code(12, i, gray=True))  # 色の数=12
+    color = (R, G, B)
+    color_code = '#%02X%02X%02X' % (color[0],color[1],color[2])
+
+    return color_code
+
+# [todo]絵文字を返す
+def make_dot(R, G, B):
+	if '#000000' == color_code_conversion(R, G, B):
+		return '黒'
+	elif '#808080' == color_code_conversion(R, G, B):
+		return '灰'
+	elif '#C0C0C0' == color_code_conversion(R, G, B):
+		return '銀'
+	elif '#FFFFFF' == color_code_conversion(R, G, B):
+		return '白'
+	elif '#0000FF' == color_code_conversion(R, G, B):
+		return '青'
+	elif '#000080' == color_code_conversion(R, G, B):
+		return '紺'
+	elif '#008080' == color_code_conversion(R, G, B):
+		return '青緑'
+	elif '#008000' == color_code_conversion(R, G, B):
+		return '緑'
+	elif '#00FF00' == color_code_conversion(R, G, B):
+		return '来夢'
+	elif '#00FFFF' == color_code_conversion(R, G, B):
+		return '水色'
+	elif '#FFFF00' == color_code_conversion(R, G, B):
+		return '黄色'
+	elif '#FF0000' == color_code_conversion(R, G, B):
+		return '赤'
+	elif '#FF00FF' == color_code_conversion(R, G, B):
+		return 'ピンク'
+	elif '#808000' == color_code_conversion(R, G, B):
+		return '金'
+	elif '#800080' == color_code_conversion(R, G, B):
+		return '紫'
+	elif '#800000' == color_code_conversion(R, G, B):
+		return '茶'
+	else:
+		print ("カラーコードは不正です")
