@@ -1,8 +1,3 @@
-# 画像のサイズを変更する
-# グリッド線を引く
-# 各マス目の色を取得
-# colorCodeに変換
-
 import cv2
 import numpy as np
 import color_code
@@ -11,7 +6,7 @@ import color_code
 fname = "input.jpg"
 img = cv2.imread(fname)
 
-# [todo]画像をドット絵化
+# [todo]画像の加工
 
 
 # 高さを150,幅を300に変更する
@@ -29,7 +24,7 @@ img = cv2.imread('output.png')
 y = 25
 x = 25
 count = 0
-nline = 6 #ドット絵の１行
+nline = 6 # ドット絵の１行
 dot = ''
 for i in range (y, wight, 50):
 	for j in range (x, hight, 50):
