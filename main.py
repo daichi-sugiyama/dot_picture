@@ -6,8 +6,9 @@ import color_code
 fname = "input.jpg"
 img = cv2.imread(fname)
 
-# [todo]画像の加工
-
+# [todo]画像のサイズをなんとかする
+## 画像の高さと幅を取得
+h,w = img.shape[:2]
 
 # 高さを150,幅を300に変更する
 hight = 300

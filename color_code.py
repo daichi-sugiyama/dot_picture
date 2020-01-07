@@ -42,36 +42,36 @@ def color_code_conversion(R, G, B):
 ## [todo]絵文字を返す
 def make_dot(R, G, B):
 	if '#000000' == color_code_conversion(R, G, B):
-		return '黒'⬛
+		return '⬛'
 	elif '#808080' == color_code_conversion(R, G, B):
-		return '灰'⬜️
+		return '⬜️'
 	elif '#C0C0C0' == color_code_conversion(R, G, B):
-		return '銀'⬜️
+		return '⬜️'
 	elif '#FFFFFF' == color_code_conversion(R, G, B):
-		return '白'🏳️
+		return '🏳️'
 	elif '#0000FF' == color_code_conversion(R, G, B):
-		return '青'📘
+		return '📘'
 	elif '#000080' == color_code_conversion(R, G, B):
-		return '紺'🏧
+		return '🏧'
 	elif '#008080' == color_code_conversion(R, G, B):
-		return '青緑'🇸🇱
+		return '🇸🇱'
 	elif '#008000' == color_code_conversion(R, G, B):
-		return '緑'✅
+		return '✅'
 	elif '#00FF00' == color_code_conversion(R, G, B):
-		return '来夢'🥎
+		return '🥎'
 	elif '#00FFFF' == color_code_conversion(R, G, B):
-		return '水色'🚾
+		return '🚾'
 	elif '#FFFF00' == color_code_conversion(R, G, B):
-		return '黄色'🆚
+		return '🆚'
 	elif '#FF0000' == color_code_conversion(R, G, B):
-		return '赤'🆑
+		return '🆑'
 	elif '#FF00FF' == color_code_conversion(R, G, B):
-		return 'ピンク'👛
+		return '👛'
 	elif '#808000' == color_code_conversion(R, G, B):
-		return '金'🎞
+		return '🎞'
 	elif '#800080' == color_code_conversion(R, G, B):
-		return '紫'🆔
+		return '🆔'
 	elif '#800000' == color_code_conversion(R, G, B):
-		return '茶'🗂
+		return '🗂'
 	else:
 		print ("カラーコードは不正です")
