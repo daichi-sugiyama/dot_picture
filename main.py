@@ -10,10 +10,10 @@ img = cv2.imread(fname)
 ## 画像の高さと幅を取得
 h,w = img.shape[:2]
 
-# 高さを150,幅を300に変更する
-hight = 300
-wight = 150
-newImg = cv2.resize(img, (hight, wight))
+# 高さを600,幅を400に変更する
+hight = 600
+width = 400
+newImg = cv2.resize(img, (width, hight))
 
 # 保存
 cv2.imwrite('output.png',newImg)
@@ -22,15 +22,17 @@ cv2.imwrite('output.png',newImg)
 img = cv2.imread('output.png')
 
 # 画像の座標によって色を選定
-y = 25
-x = 25
+## １マス25×25
+## ヨコ 16 タテ 24
+y = 12 #12.5
+x = 12 #12.5
 count = 0
-nline = 6 # ドット絵の１行
+nline = 16 # ドット絵の１行
 dot = ''
-for i in range (y, wight, 50):
-	for j in range (x, hight, 50):
+for i in range (y, hight, 25):
+	for j in range (x, width, 25):
 		count += 1
-		# GBRを取得
+		# GBRを取得
 		color = img[i, j]
 		# colorCodeを変換
 		dot += str(color_code.make_dot(color[2], color[1], color[0]))
