@@ -6,31 +6,32 @@ import color_code
 fname = "input.jpg"
 img = cv2.imread(fname)
 
-# [todo]画像のサイズをなんとかする
+# todo:読み込んだ画像のサイズをなんとかする
 ## 画像の高さと幅を取得
 h,w = img.shape[:2]
-
-# 高さを600,幅を400に変更する
+## 高さを600,幅を400に変更する
 hight = 600
 width = 400
 newImg = cv2.resize(img, (width, hight))
-
-# 保存
+## 保存
 cv2.imwrite('output.png',newImg)
 
-# 新しくできた画像を読み込み
+# 加工した画像を読み込み
 img = cv2.imread('output.png')
 
-# 画像の座標によって色を選定
-## １マス25×25
-## ヨコ 16 タテ 24
-y = 12 #12.5
-x = 12 #12.5
-count = 0
-nline = 16 # ドット絵の１行
+# 加工した画像の座標の色によって絵文字を選定
+## １マス:25×25
+## ヨコ:16 タテ:24
+step_y = 25
+step_x = 25
+y = int(step_y / 2) #12
+x = int(step_x / 2) #12
+nline = 16 # ドット絵の１行:ヨコ
+
 dot = ''
-for i in range (y, hight, 25):
-	for j in range (x, width, 25):
+count = 0
+for i in range (y, hight, step_y):
+	for j in range (x, width, step_x):
 		count += 1
 		# GBRを取得
 		color = img[i, j]
