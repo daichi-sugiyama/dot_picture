@@ -3,7 +3,7 @@ import numpy as np
 import color_code
 
 # 画像を入力
-fname = "input.jpg"
+fname = "img/input.jpg"
 img = cv2.imread(fname)
 
 # todo:読み込んだ画像のサイズをなんとかする
@@ -14,10 +14,10 @@ hight = 600
 width = 400
 newImg = cv2.resize(img, (width, hight))
 ## 保存
-cv2.imwrite('output.png',newImg)
+cv2.imwrite('img/output.png',newImg)
 
 # 加工した画像を読み込み
-img = cv2.imread('output.png')
+img = cv2.imread('img/output.png')
 
 # 加工した画像の座標の色によって絵文字を選定
 ## １マス:25×25
