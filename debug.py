@@ -1,11 +1,26 @@
-color = [0, 128, 255]
+import cv2
+import numpy as np
 
-# 既存のリスト
-list = ['#000000','#808080','#C0C0C0','#FFFFFF','#0000FF','#000080','#008080','#008000','#00FF00','#00FFFF','#FFFF00','#FF0000','#FF00FF','#808000','#800080','#800000']
+# 画像を認識
+img = cv2.imread("input.jpg")
+img2 = img.copy()
+img3 = img.copy()
 
-for i in color:
-	for j in color:
-		for k in color:
-			color_code = '#%02X%02X%02X' % (i, j, k)
-			if not color_code in list:
-				print (color_code)
+# グレースケール
+gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+cv2.imwrite("calendar_mod.png", gray)
+# 反転
+gray2 = cv2.bitwise_not(gray)
+cv2.imwrite("calendar_mod2.png", gray2)
+# ラインを取得
+lines = cv2.HoughLinesPlines = cv2.HoughLinesP(gray2, rho=1, theta=np.pi/360, threshold=200, minLineLength=200, maxLineGap=5)
+
+count = 0
+for line in lines:
+    x1, y1, x2, y2 = line[0]
+
+    # 赤線を引く
+    red_lines_img = cv2.line(img2, (x1,y1), (x2,y2), (0,0,255), thickness=1)
+    cv2.imwrite("calendar_mod3.png", red_lines_img)
+    count = count+1
+print(count)
