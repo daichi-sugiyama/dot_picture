@@ -1,23 +1,19 @@
 import cv2
+import sys
 import numpy as np
 import color_code
+import img_edit
 
 # 画像を入力
 fname = "img/input.jpg"
 img = cv2.imread(fname)
 
-# todo:読み込んだ画像のサイズをなんとかする
-## 画像の高さと幅を取得
-h,w = img.shape[:2]
-## 高さを600,幅を400に変更する
-hight = 600
-width = 400
-newImg = cv2.resize(img, (width, hight))
-## 保存
-cv2.imwrite('img/output.png',newImg)
+# [関数呼び出し]読み込んだ画像のサイズを編集
+img_edit.img_edit(img)
 
-# 加工した画像を読み込み
-img = cv2.imread('img/output.png')
+sys.exit()
+
+hight,width = img.shape[:2]
 
 # 加工した画像の座標の色によって絵文字を選定
 ## １マス:25×25

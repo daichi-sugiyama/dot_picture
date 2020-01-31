@@ -4,22 +4,16 @@ def make_dot(R, G, B):
 	color_code = color_code_conversion(R, G, B)
 	if '#000000' == color_code:
 		return '⬛'
-	elif '#808080' == color_code:
+	elif '#808080' == color_code or '#C0C0C0' == color_code or '#FFFFFF' == color_code:
 		return '⬜️'
-	elif '#C0C0C0' == color_code:
-		return '⬜️'
-	elif '#FFFFFF' == color_code:
-		return '🏳️'
-	elif '#0000FF' == color_code:
+	elif '#000080' == color_code or '#0080FF' == color_code or '#0000FF'== color_code:
 		return '📘'
-	elif '#000080' == color_code or '#0080FF' == color_code:
-		return '🏧'
 	elif '#008080' == color_code:
-		return '🇸🇱'
+		return '✅'
 	elif '#008000' == color_code or '#00FF80' == color_code or '#80FF80' == color_code:
 		return '✅'
 	elif '#00FF00' == color_code or '#80FF00' == color_code or '#FFFF80' == color_code:
-		return '🥎'
+		return '✅'
 	elif '#00FFFF' == color_code or '#80FFFF' == color_code:
 		return '🚾'
 	elif '#FFFF00' == color_code or '#FF8000' == color_code:
@@ -29,11 +23,11 @@ def make_dot(R, G, B):
 	elif '#FF00FF' == color_code or '#FF8080' == color_code or '#FF80FF' == color_code:
 		return '👛'
 	elif '#808000' == color_code:
-		return '🎞'
+		return '📔'
 	elif '#800080' == color_code or '#8000FF' == color_code or '#8080FF' == color_code:
 		return '🆔'
 	elif '#800000' == color_code:
-		return '🗂'
+		return '📕'
 	else:
 		return (color_code)
 
