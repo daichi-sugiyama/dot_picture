@@ -2,32 +2,24 @@ import cv2
 import sys
 import numpy as np
 import color_code
-import img_edit
+import get_image_element
 
-# 画像を入力
-fname = "img/input.jpg"
-img = cv2.imread(fname)
+# 入力する画像
+input_image_path = "input.jpg"
 
-# [関数呼び出し]読み込んだ画像のサイズを編集
-img_edit.img_edit(img)
+# 各パラメータを取得
+x_count, y_count, x_step, y_step, img = get_image_element.get_image_element(input_image_path)
 
-sys.exit()
-
-hight,width = img.shape[:2]
-
+print (x_count, y_count, x_step, y_step)
 # 加工した画像の座標の色によって絵文字を選定
-## １マス:25×25
-## ヨコ:16 タテ:24
-step_y = 25
-step_x = 25
-y = int(step_y / 2) #12
-x = int(step_x / 2) #12
-nline = 16 # ドット絵の１行:ヨコ
+x = int(x_step / 2)
+y = int(y_step / 2)
+nline = x_count # ドット絵の１行:ヨコ
 
 dot = ''
 count = 0
-for i in range (y, hight, step_y):
-	for j in range (x, width, step_x):
+for i in range (y, y_step * y_count, y_step):
+	for j in range (x, x_step * x_count, x_step):
 		count += 1
 		# GBRを取得
 		color = img[i, j]
