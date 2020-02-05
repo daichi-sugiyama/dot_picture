@@ -10,10 +10,13 @@ input_image_path = "input.jpg"
 # 各パラメータを取得
 x_count, y_count, x_step, y_step, img = get_image_element.get_image_element(input_image_path)
 
-print (x_count, y_count, x_step, y_step)
+print ("横のマス数：" + str(x_count))
+print ("縦のマス数：" + str( y_count))
+print ("マスの横の大きさ：" + str(x_step))
+print ("マスの縦の大きさ：" + str(y_step))
 # 加工した画像の座標の色によって絵文字を選定
-x = int(x_step / 2)
-y = int(y_step / 2)
+x = 0
+y = 0
 nline = x_count # ドット絵の１行:ヨコ
 
 dot = ''
