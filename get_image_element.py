@@ -24,9 +24,9 @@ def get_image_element(src_in = 'input.jpg'): #入力画像のパス
     y_min = min(y)
     img = img[y_min:y_max,x_min:x_max]
 
-    # BGR -> グレースケール
+    # グレースケール
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    # エッジ抽出 (Canny) → ２色化して反転することでマス目の線を目立たせる
+    # エッジ抽出
     ret, threshold_img = cv2.threshold(gray, 127, 255, cv2.THRESH_BINARY)
     edges = cv2.bitwise_not(threshold_img)
 
