@@ -7,7 +7,7 @@ def make_dot(R, G, B):
 	elif '#808080' == color_code or '#C0C0C0' == color_code or '#FFFFFF' == color_code:
 		return '⬜️'
 	elif '#000080' == color_code or '#0080FF' == color_code or '#0000FF'== color_code:
-		return '📘'
+		return '🚾'
 	elif '#008080' == color_code:
 		return '✅'
 	elif '#008000' == color_code or '#00FF80' == color_code or '#80FF80' == color_code:
